@@ -42,7 +42,7 @@ In this exercise, you'll use the provided Terraform skeleton to create a network
 
 ### Part 2: Define Variables and Configuration
 
-1. **Update variables.tf**
+1. **Update variables.tf** (in project root directory - not in the module!)
    - Create the variable definitions:
      ```hcl
      variable "aws_region" {
@@ -121,8 +121,8 @@ In this exercise, you'll use the provided Terraform skeleton to create a network
      ```
 
 2. **Update main.tf**
-   - Copy the provided skeleton code as a base
-   - Modify it to match our networking requirements
+   - Copy the **terraform, provider and data sources** provided skeleton code as a base
+   - Modify it to match our networking requirements (like the resource names)
 
 ### Part 3: Create the VPC Module
 
@@ -396,7 +396,7 @@ In this exercise, you'll use the provided Terraform skeleton to create a network
 ### Part 4: Update Main Configuration
 
 1. **Update the main.tf file**
-   - Keep the existing terraform, provider blocks, and data sources
+   - Keep the existing **terraform, provider** blocks, and **data sources**
    - Replace the module and resource configurations:
 
    ```hcl
@@ -598,7 +598,7 @@ In this exercise, you'll use the provided Terraform skeleton to create a network
 
      tags = merge(
        local.common_tags,
-       {
+       {[myplan](terraform-ec2-networking/myplan)
          Name = "${local.common_name}-private-instance"
        }
      )
